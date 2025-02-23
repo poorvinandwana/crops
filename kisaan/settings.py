@@ -82,19 +82,22 @@ WSGI_APPLICATION = 'kisaan.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
+
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
     
+import os
+
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_db',  # Replace with your AWS RDS database name
-        'USER': 'poorvinandwana',  # Replace with your AWS RDS username
-        'PASSWORD': 'poorvinandwana',  # Replace with your AWS RDS password
-        'HOST': 'my-db.cnqiuw24q5sn.ap-south-1.rds.amazonaws.com',  # Your AWS RDS endpoint
-        'PORT': '5432',  # Default PostgreSQL port
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
 
