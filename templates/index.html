@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisaan | Entry Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        label, input, select {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input, select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Soil Details Form</h2>
+    <form action="/" method="post">
+        {% csrf_token %}
+        <label for="nitrogen">Nitrogen (mg/kg)</label>
+        <input type="number" id="nitrogen" name="nitrogen" step="0.01" required>
+        
+        <label for="phosphorus">Phosphorus (mg/kg)</label>
+        <input type="number" id="phosphorus" name="phosphorus" step="0.01" required>
+        
+        <label for="potassium">Potassium (mg/kg)</label>
+        <input type="number" id="potassium" name="potassium" step="0.01" required>
+        
+        <label for="temperature">Temperature (&deg;C)</label>
+        <input type="number" id="temperature" name="temperature" step="0.1" required>
+        
+        <label for="ph">Soil pH</label>
+        <input type="number" id="ph" name="ph" step="0.1" required>
+        
+        <label for="soil_type">Type of Soil</label>
+        <select id="soil_type" name="soil_type" required>
+            <option value="clay">Clay</option>
+            <option value="sandy">Sandy</option>
+            <option value="loamy">Loamy</option>
+            <option value="peaty">Peaty</option>
+            <option value="saline">Saline</option>
+            <option value="silty">Silty</option>
+        </select>
+        
+        <label for="moisture">Moisture Content</label>
+        <select id="moisture" name="moisture" required>
+            <option value="high">High</option>
+            <option value="moderate-high">Moderate-High</option>
+            <option value="moderate">Moderate</option>
+            <option value="moderate-low">Moderate-Low</option>
+            <option value="low">Low</option>
+        </select>
+        
+        <label for="salinity">Salinity</label>
+        <select id="salinity" name="salinity" required>
+            <option value="high">High</option>
+            <option value="moderate-high">Moderate-High</option>
+            <option value="moderate">Moderate</option>
+            <option value="moderate-low">Moderate-Low</option>
+            <option value="low">Low</option>
+        </select>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
