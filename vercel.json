@@ -13,7 +13,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "kisaan.wsgi.app"
+      "dest": "kisaan/wsgi.py"
     }
   ]
 }
